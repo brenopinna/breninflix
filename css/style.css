@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root{
+   --scrollbar-size: 0.8vw;
+   --header-height: 5rem;
+   --fonte-destaque: "Bebas Neue";
+   --fonte-padrao: "Open Sans";
+   --text-shadow: 1px 1px 3px black;
+   --main-color: rgb(7,7,7);
+   --secondary-color: rgba(27, 27, 27, 0.5);
+   --logo-red:#E50914;
+}
+
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   
+   user-select: none;
+   -webkit-user-select: none;
+   -webkit-user-drag: none;
+}
+
+*::-webkit-scrollbar{
+   width: var(--scrollbar-size);
+   max-width: 8px;
+   height: var(--scrollbar-size);
+   max-height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+   background-color: var(--secondary-color);
+}
+
+*::-webkit-scrollbar-thumb {
+   border-radius: calc(var(--scrollbar-size) * 0.5);
+   background-color: var(--logo-red);
+}
+
+html{
+   font-size: clamp(12px, 2vw, 16px);
+}
+
+body{
+   background-color: var(--main-color);
+   font-family: var(--fonte-padrao);
+}
+
+.container{
+   padding: 0 3rem;
+   height: 100%;
+}
+
+header{
+   position: absolute;
+   top: 0;
+   z-index: 2;
+   width: 100%;
+   height: var(--header-height);
+   background-image: linear-gradient(
+      to bottom,
+      var(--main-color),
+      transparent
+   );
+}
+
+header .container{
+   display: flex;
+   align-items: center;
+}
+
+header h1{
+   font-family: var(--fonte-destaque);
+   text-transform: uppercase;
+   font-weight: normal;
+   font-size: 2rem;
+   color: var(--logo-red);
+   text-shadow: 0 0 2px rgba(0, 0, 0, 0.206);
+}
+
+main{
+   min-height: 100vh;
+}
+
+#destaque{
+   position: relative;
+   width: 100%;
+   height: 55.4vw;
+   padding-top: var(--header-height);
+   background-image: none;
+   background-size: cover;
+   color: white;
+}
+
+#shadow{
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   height: 25vw;
+   background-image: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(0,0,0,0.5),
+      var(--main-color)
+      );
+}
+
+#destaque .container{
+   position: relative;
+}
+
+#destaque-info{
+   position: absolute;
+   bottom: 10vw;
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   padding-right: 1rem;
+}
+
+#title, #description{
+   text-shadow: var(--text-shadow);
+}
+
+#destaque #title{
+   font-size: 3rem;
+   font-weight: normal;
+   font-family: var(--fonte-destaque);
+}
+
+#destaque #description{
+   background-color: var(--secondary-color);
+   max-width: 35rem;
+   max-height: 7rem;
+   padding: 0 0.5rem;
+   overflow: auto;
+   text-align: justify;
+}
+
+#buttons{
+   display: flex;
+   gap: 0.7rem;
+}
+
+.button{
+   cursor: pointer;
+   display: flex;
+   padding: 0.6rem 1.5rem;
+   border-radius: 0.3rem;
+   font-weight: bold;
+}
+
+.icon{
+   height: 1.5rem;
+   margin-right: 0.6rem;
+}
+
+#assistir{
+   color: black;
+   background-color: white;
+}
+
+#assistir:hover{
+   background-color: rgb(221, 221, 221);
+}
+
+#info{
+   background-color: rgba(99, 99, 99, 0.595);
+}
+
+#info:hover{
+   background-color: rgba(67, 67, 67, 0.595);
+}
+
+.filmes-container{
+   margin-top: 1rem;
+}
+
+.filmes-container h2{
+   color: white;
+   padding-top: 1rem;
+}
+
+.filmes-list{
+   display: flex;
+   gap: 1.5vw;
+   padding: 1vw 0;
+   width: 100%;
+   overflow: auto;
+   list-style-type: none;
+}
+
+.filmes-list li{
+   width: 16vw;
+   height: 24vw;
+   flex-shrink: 0;
+}
+
+.filmes-list img{
+   width: 100%;
+   height: 100%;
+   border: 2px solid var(--secondary-color);
+   border-radius: calc(16vw * 0.05);
+}
+
+footer{
+   margin-top: 4rem;
+   background-color: var(--secondary-color);
+   color: white;
+   padding: 1rem 0;
+}
+
+footer .container{
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   gap: 1rem 2rem;
+}
+
+footer a{
+   color: white;
+   text-decoration: none;
+   font-weight: bold;
+}
+
+footer #tmdb{
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   max-width: 25rem;
+}
+
+#tmdb p{
+   text-align: left;
+}
+
+footer img{
+   height: 2.2rem;
+}
+
+@media screen and (max-width: 768px) {
+   .filmes-list li{
+      width: 20vw;
+      height: 30vw;
+   }
+}
+
+@media screen and (max-width: 650px) {
+   .filmes-list li{
+      width: 30vw;
+      height: 45vw;
+   }
+}
+
+@media screen and (max-width: 512px) {
+   #destaque-info{
+      gap: 0rem;
+      bottom: 4vw;
+   }
+
+   #destaque-info #description{
+      display: none;
+   }
+
+   #title{
+      font-size: 8vw !important;
+   }
+}
+
+@media screen and (max-width: 360px) {
+   .button{
+      padding: 0.6rem;
+      border-radius: 0.3rem;
+      font-weight: bold;
+   }
+
+   .filmes-list li{
+      width: 36vw;
+      height: 54vw;
+   }
+}
