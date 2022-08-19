@@ -56,7 +56,7 @@ function renderMovies(){
 }
 
 addMainMovie();
-const categorizedMovies = returnCategorizedMovies(6);
+const categorizedMovies = returnCategorizedMovies(3);
 renderMovies(categorizedMovies);
 
 //revisada e correta

@@ -1,4 +1,4 @@
-const moviePages = 5;
+const moviePages = 3;
 const moviesList = [];
 
 for(let page = 1; page <= moviePages; page++){
